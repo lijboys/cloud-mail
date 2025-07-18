@@ -225,5 +225,5 @@ cloud-mail
 
 [Telegram](https://t.me/cloud_mail_tg)
 
-
+![Stars 增长趋势](https://starchart.cc/lijboys/cloud-mail.svg)
 
