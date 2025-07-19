@@ -42,8 +42,8 @@ const loginService = {
 			throw new BizError('邮箱长度超出限制');
 		}
 
-		if (password.length <= 6) {
-			throw new BizError('密码必须大于6位');
+		if (password.length < 6) {
+			throw new BizError('密码至少6位');
 		}
 
 		if (!c.env.domain.includes(emailUtils.getDomain(email))) {
