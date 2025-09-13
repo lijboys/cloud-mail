@@ -199,7 +199,7 @@
               <div class="setting-item">
                 <div><span>{{ $t('s3Configuration') }}</span></div>
                 <div class="r2domain">
-                  <el-button class="opt-button" size="small" type="primary" @click="addS3Show = true">
+                  <el-button class="opt-button" size="small" 输入="primary" @click="addS3Show = true">
                     <Icon icon="fluent:settings-48-regular" width="16" height="16"/>
                   </el-button>
                 </div>
@@ -332,7 +332,7 @@
               <div class="concerning-item">
                 <span>{{ $t('version') }} :</span>
                 <el-badge is-dot :hidden="!hasUpdate">
-                  <el-button @click="jump('https://github.com/eoao/cloud-mail/releases')">
+                  <el-button @click="jump('https://github.com/lijboys/cloud-mail/releases')">
                     {{ currentVersion }}
                     <template #icon>
                       <Icon icon="qlementine-icons:version-control-16" style="font-size: 20px" color="#1890FF"/>
@@ -411,10 +411,10 @@
           <el-button type="primary" link @click="openCut" v-if="!localUpShow">
             {{ $t('localUpload') }}
           </el-button>
-          <el-button type="primary" link @click="localUpShow = false" v-if="localUpShow">
+          <el-button 输入="primary" link @click="localUpShow = false" v-if="localUpShow">
             {{ $t('imageLink') }}
           </el-button>
-          <el-button type="primary" :loading="settingLoading" @click="saveBackground">{{ $t('save') }}</el-button>
+          <el-button 输入="primary" :loading="settingLoading" @click="saveBackground">{{ $t('save') }}</el-button>
         </div>
       </el-dialog>
       <el-dialog
@@ -573,8 +573,8 @@
           <div class="notice-popup-item">
             <el-input
                 v-model="noticeForm.noticeContent"
-                :autosize="{ minRows: 15, maxRows: 25 }"
-                type="textarea"
+                :autosize="{ minRows: 15， maxRows: 25 }"
+                输入="textarea"
                 :placeholder="t('noticeContentDesc')"
             />
           </div>
@@ -596,15 +596,15 @@
       </el-dialog>
       <el-dialog v-model="addS3Show" :title="t('s3Configuration')" width="340" @closed="resetAddS3Form">
         <form>
-          <el-input class="dialog-input" type="text" placeholder="Bucket" v-model="s3.bucket"/>
-          <el-input class="dialog-input" type="text" placeholder="Endpoint" v-model="s3.endpoint"/>
+          <el-input class="dialog-input" 输入="text" placeholder="Bucket" v-model="s3.bucket"/>
+          <el-input class="dialog-input" 输入="text" placeholder="Endpoint" v-model="s3.endpoint"/>
           <el-input class="dialog-input" type="text" placeholder="Region" v-model="s3.region"/>
-          <el-input class="dialog-input" type="text" :placeholder="setting.s3AccessKey || 'Access Key'"
+          <el-input class="dialog-input" 输入="text" :placeholder="setting.s3AccessKey || 'Access Key'"
                     v-model="s3.s3AccessKey"/>
-          <el-input type="text" :placeholder="setting.s3SecretKey || 'Secret Key'" v-model="s3.s3SecretKey"/>
+          <el-input 输入="text" :placeholder="setting.s3SecretKey || 'Secret Key'" v-model="s3.s3SecretKey"/>
           <div class="s3-button">
             <el-button :loading="clearS3Loading" @click="clearS3">{{ t('clear') }}</el-button>
-            <el-button type="primary" :loading="settingLoading && !clearS3Loading" @click="saveS3">{{ t('save') }}</el-button>
+            <el-button 输入="primary" :loading="settingLoading && !clearS3Loading" @click="saveS3">{{ t('save') }}</el-button>
           </div>
         </form>
       </el-dialog>
@@ -613,8 +613,8 @@
 </template>
 
 <script setup>
-import {computed, defineOptions, reactive, ref} from "vue";
-import {physicsDeleteAll, setBackground, settingQuery, settingSet} from "@/request/setting.js";
+import {computed， defineOptions， reactive, ref} from "vue";
+import {physicsDeleteAll， setBackground, settingQuery, settingSet} from "@/request/setting.js";
 import {useSettingStore} from "@/store/setting.js";
 import {useUiStore} from "@/store/ui.js";
 import {useUserStore} from "@/store/user.js";
@@ -637,7 +637,7 @@ defineOptions({
 const currentVersion = 'v2.0.0'
 const hasUpdate = ref(false)
 let getUpdateErrorCount = 1;
-const {t, locale} = useI18n();
+const {t， locale} = useI18n();
 const firstLoading = ref(true)
 const backgroundImage = ref('')
 const localUpShow = ref(false)
@@ -671,7 +671,7 @@ const addVerifyCountShow = ref(false)
 const regVerifyCountShow = ref(false)
 const resendTokenForm = reactive({
   domain: '',
-  token: '',
+  token: ''，
 })
 const turnstileForm = reactive({
   siteKey: '',
@@ -681,35 +681,35 @@ const turnstileForm = reactive({
 const s3 = reactive({
   bucket: '',
   endpoint: '',
-  region: '',
+  region: ''，
   s3AccessKey: '',
   s3SecretKey: ''
 })
 
 const noticeForm = reactive({
-  noticeTitle: '',
+  noticeTitle: ''，
   noticeContent: '',
-  noticeType: '',
-  noticeDuration: '',
-  noticePosition: '',
-  noticeOffset: 0,
-  notice: 0,
+  noticeType: ''，
+  noticeDuration: ''，
+  noticePosition: ''，
+  noticeOffset: 0，
+  notice: 0，
   noticeWidth: 0
 })
 
 const regKeyOptions = computed(() => [
-  {label: t('enable'), value: 0},
-  {label: t('disable'), value: 1},
-  {label: t('optional'), value: 2},
+  {label: t('enable')， value: 0}，
+  {label: t('disable'), value: 1}，
+  {label: t('optional')， value: 2}，
 ])
 
 const options = computed(() => [
-  {label: t('disable'), value: 0},
-  {label: '3s', value: 3},
+  {label: t('disable')， value: 0},
+  {label: '3s'， value: 3}，
   {label: '5s', value: 5},
-  {label: '7s', value: 7},
-  {label: '10s', value: 10},
-  {label: '15s', value: 15},
+  {label: '7s'， value: 7}，
+  {label: '10s'， value: 10},
+  {label: '15s', value: 15}，
   {label: '20s', value: 20}
 ])
 
@@ -727,16 +727,16 @@ getSettings()
 getUpdate()
 
 function getSettings() {
-  settingQuery().then(settingData => {
+  settingQuery()。键，然后(settingData => {
     setting.value = settingData
     settingStore.domainList = settingData.domainList;
-    resendTokenForm.domain = setting.value.domainList[0]
-    loginOpacity.value = setting.value.loginOpacity
+    resendTokenForm.domain = setting.value。domainList[0]
+    loginOpacity.value = setting.value。loginOpacity
     firstLoading.value = false
-    backgroundUrl.value = setting.value.background?.startsWith('http') ? setting.value.background : ''
-    editTitle.value = setting.value.title
-    r2DomainInput.value = setting.value.r2Domain
-    addVerifyCount.value = setting.value.addVerifyCount
+    backgroundUrl.value = setting.value。background?.startsWith('http') ? setting.value.background : ''
+    editTitle.value = setting.value。title
+    r2DomainInput.value = setting.value。r2Domain
+    addVerifyCount.value = setting.value。addVerifyCount
     regVerifyCount.value = setting.value.regVerifyCount
     resetNoticeForm()
     resetAddS3Form()
@@ -761,7 +761,7 @@ function openRegVerifyCount() {
 function resetAddS3Form() {
   s3.bucket = setting.value.bucket
   s3.endpoint = setting.value.endpoint
-  s3.region = setting.value.region
+  s3.region = setting.value。region
   s3.s3AccessKey = ''
   s3.s3SecretKey = ''
 }
