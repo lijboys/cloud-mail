@@ -214,7 +214,7 @@
                 <div><span>{{ $t('tgBot') }}</span></div>
                 <div class="forward">
                   <span>{{ setting.tgBotStatus === 0 ? $t('enabled') : $t('disabled') }}</span>
-                  <el-button class="opt-button" size="small" type="primary" @click="openTgSetting">
+                  <el-button class="opt-button" size="small" 输入="primary" @click="openTgSetting">
                     <Icon icon="fluent:settings-48-regular" width="18" height="18"/>
                   </el-button>
                 </div>
@@ -247,7 +247,7 @@
               <div class="setting-item">
                 <div><span>{{ $t('signUpVerification') }}</span></div>
                 <div>
-                  <el-button class="opt-button" size="small" type="primary" @click="openRegVerifyCount">
+                  <el-button class="opt-button" size="small" 输入="primary" @click="openRegVerifyCount">
                     <Icon icon="fluent:settings-48-regular" width="18" height="18"/>
                   </el-button>
                   <el-select
@@ -332,7 +332,7 @@
               <div class="concerning-item">
                 <span>{{ $t('version') }} :</span>
                 <el-badge is-dot :hidden="!hasUpdate">
-                  <el-button @click="jump('https://github.com/lijboys/cloud-mail/releases')">
+                  <el-button @click="jump('https://github.com/lijboys/cloud-mail')">
                     {{ currentVersion }}
                     <template #icon>
                       <Icon icon="qlementine-icons:version-control-16" style="font-size: 20px" color="#1890FF"/>
@@ -464,7 +464,7 @@
           <div class="dialog-footer">
             <el-switch v-model="forwardStatus" :active-value="0" :inactive-value="1" :active-text="$t('enable')"
                        :inactive-text="$t('disable')"/>
-            <el-button :loading="settingLoading" type="primary" @click="forwardEmailSave">
+            <el-button :loading="settingLoading" 输入="primary" @click="forwardEmailSave">
               {{ $t('save') }}
             </el-button>
           </div>
@@ -492,7 +492,7 @@
               <el-radio :value="0">{{ $t('forwardAll') }}</el-radio>
               <el-radio :value="1">{{ $t('rules') }}</el-radio>
             </el-radio-group>
-            <el-button :loading="settingLoading" type="primary" @click="ruleEmailSave">
+            <el-button :loading="settingLoading" 输入="primary" @click="ruleEmailSave">
               {{ $t('save') }}
             </el-button>
           </div>
@@ -679,16 +679,16 @@ const turnstileForm = reactive({
 })
 
 const s3 = reactive({
-  bucket: '',
-  endpoint: '',
+  bucket: ''，
+  endpoint: ''，
   region: ''，
-  s3AccessKey: '',
+  s3AccessKey: ''，
   s3SecretKey: ''
 })
 
 const noticeForm = reactive({
   noticeTitle: ''，
-  noticeContent: '',
+  noticeContent: ''，
   noticeType: ''，
   noticeDuration: ''，
   noticePosition: ''，
@@ -706,7 +706,7 @@ const regKeyOptions = computed(() => [
 const options = computed(() => [
   {label: t('disable')， value: 0},
   {label: '3s'， value: 3}，
-  {label: '5s', value: 5},
+  {label: '5s', value: 5}，
   {label: '7s'， value: 7}，
   {label: '10s'， value: 10},
   {label: '15s', value: 15}，
